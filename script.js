@@ -39,7 +39,7 @@ const resultsArtist = document.getElementById('results-artists');
 const resultPlaylist = document.getElementById('results-playlist');
 
 function requestApi(searchTerms){
-    const apiUrl = 'https://run.mocky.io/v3/d67a5a73-8c68-42a4-a057-753d66df36e2/artists?name_like=${searchTerm}';
+    const apiUrl = `https://run.mocky.io/v3/d67a5a73-8c68-42a4-a057-753d66df36e2/artists?name_like=${searchTerm}`;
     fetch(`apiUrl`)
         .then((response) => response.json())
        // .then((result) >= displayResults(result))
