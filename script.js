@@ -43,7 +43,6 @@ function requestApi(searchTerms){
     fetch(`apiUrl`, {
         method: 'GET',
         headers: {'content-type':'application/json'},
-        origin: 'http://localhost:5500'
       })
         .then((response) => response.json())
        // .then((result) >= displayResults(result))
