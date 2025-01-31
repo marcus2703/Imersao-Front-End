@@ -33,3 +33,31 @@ function exibirMensagemgreeting(){
 exibirTextoNaTela('greeting', greetings());
 }
 exibirMensagemgreeting();
+
+const searchImput = document.getElementById('search-input');
+const resultsArtist = document.getElementById('results-artists');
+const resultPlaylist = document.getElementById('results-playlist');
+
+function requestApi(searchTerms){
+    const apiUrl = 'https://run.mocky.io/v3/d67a5a73-8c68-42a4-a057-753d66df36e2/artists?name_like=${searchTerm}';
+    fetch(`apiUrl`, {
+        method: 'GET',
+        headers: {'content-type':'application/json'},
+        origin: 'http://localhost:5500'
+      })
+        .then((response) => response.json())
+       // .then((result) >= displayResults(result))
+}
+
+
+
+document.addEventListener('input', function(){
+    const searchTerms = searchImput.value.toLowerCase();
+    if (searchTerms === ''){
+        resultPlaylist.classList.add('hidden');
+        resultsArtist.classList.remove('hidden');
+        return;
+    }
+
+    requestApi(searchTerms);
+});
